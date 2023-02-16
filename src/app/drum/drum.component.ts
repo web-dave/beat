@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
-import { sounds } from './sounds';
+import { sounds } from '../../assets/sounds';
 
 @Component({
   selector: 'tr[appDrum]',
