@@ -22,19 +22,10 @@ export class AppComponent implements AfterViewInit {
   beat = inject(BeatService);
   instruments: string[] = this.beat.instruments;
   bpm = this.beat.bpm;
-  sound!: { name: string; active: boolean; bar: number };
   tones: { name: string; active: boolean; bar: number }[] = [];
   bar = 0;
 
   mach$ = this.beat.takt$;
-  // .pipe(
-  //   tap((data) => console.table(data)),
-  //   tap((d) => {
-  //     this.bar = d.bar;
-  //   }),
-  //   tap((s) => (this.sound = s))
-  // )
-  // .subscribe();
 
   restart(pattern: { name: string; active: boolean; bar: number }[]) {
     // console.table(pattern);

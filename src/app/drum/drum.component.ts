@@ -4,12 +4,16 @@ import {
   ElementRef,
   Input,
   OnChanges,
+  OnInit,
   Output,
   QueryList,
+  SimpleChange,
+  SimpleChanges,
   ViewChildren,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
+import { sounds } from './sounds';
 
 @Component({
   selector: 'tr[appDrum]',
@@ -110,7 +114,7 @@ export class DrumComponent implements OnChanges, AfterViewInit {
   @Input() bar: number | null = 0;
   // @Input() i: number = 0;
   @Input() bars: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
-  @Input() sound: any;
+
   pattern: { name: string; active: boolean; bar: number }[] = this.bars.map(
     (i) => ({
       name: this.name,
@@ -124,14 +128,18 @@ export class DrumComponent implements OnChanges, AfterViewInit {
   @ViewChildren('inbut')
   checkBoxRefs!: QueryList<ElementRef<HTMLInputElement>>;
 
-  ngOnChanges(): void {
+  sound = new Audio(sounds[this.name]);
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.bar && this.pattern[this.bar].active) {
       this.beep();
     }
+    if (changes?.['name']) {
+      this.sound = new Audio(sounds[this.name]);
+    }
   }
+
   beep() {
-    const snd = new Audio(location.href + `assets/${this.name}.wav`);
-    snd.play();
+    this.sound.play();
   }
   ngAfterViewInit(): void {
     this.restartPattern();
