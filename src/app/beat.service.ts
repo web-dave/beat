@@ -45,7 +45,7 @@ export class BeatService {
       }
       return v;
     }),
-    tap((data) => console.log('IIIII', data)),
+    // tap((data) => console.log('IIIII', data)),
     shareReplay()
   );
 

@@ -128,18 +128,22 @@ export class DrumComponent implements OnChanges, AfterViewInit {
   @ViewChildren('inbut')
   checkBoxRefs!: QueryList<ElementRef<HTMLInputElement>>;
 
-  sound = new Audio(sounds[this.name]);
+  sound = sounds[this.name];
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.bar && this.pattern[this.bar].active) {
+    if (this.bar !== null && this.pattern[this.bar].active) {
       this.beep();
+    } else {
+      if (this.name === 'clap' && this.bar !== null) {
+        console.log('clap', this.bar, this.pattern[this.bar]?.active);
+      }
     }
     if (changes?.['name']) {
-      this.sound = new Audio(sounds[this.name]);
+      this.sound = sounds[this.name];
     }
   }
 
   beep() {
-    this.sound.play();
+    new Audio(this.sound).play();
   }
   ngAfterViewInit(): void {
     this.restartPattern();
