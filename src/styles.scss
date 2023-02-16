@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: radial-gradient(ellipse at center, #ff00d4 0%, #00e061 100%);
+  td {
+    border-left: solid 3px transparent;
+    &.active {
+      border-left: solid 3px #009de0;
+    }
+  }
+}
