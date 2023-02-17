@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#F509CF" />
     <title>Beat</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,9 +11,15 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200"
     />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" href="assets/beat-48.png" />
   </head>
   <body>
     <app-root></app-root>
+    <script>
+      navigator.serviceWorker
+        .register("sw.js")
+        .then((subscription) => console.log(subscription))
+        .catch((err) => console.error(err));
+    </script>
   </body>
 </html>

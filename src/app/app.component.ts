@@ -1,13 +1,6 @@
 import { CommonModule } from '@angular/common';
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  inject,
-  QueryList,
-  ViewChildren,
-} from '@angular/core';
-import { tap } from 'rxjs';
+import { AfterViewInit, Component, inject } from '@angular/core';
+
 import { BeatService } from './beat.service';
 import { DrumComponent } from './drum/drum.component';
 

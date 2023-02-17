@@ -1,0 +1,42 @@
+{
+  "name": "BEAT",
+  "short_name": "beat",
+  "start_url": "/",
+  "display": "standalone",
+  "description": "Drum Machine",
+  "lang": "Music",
+  "dir": "auto",
+  "theme_color": "#F509CF",
+  "background_color": "#1BC86D",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/beat-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/beat-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/screenshot.png",
+      "sizes": "1746x1856",
+      "type": "image/png",
+      "description": "A screenshot of the home page"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "BEAT",
+      "url": "/",
+      "description": "Drum Machine"
+    }
+  ]
+}
